@@ -1,10 +1,11 @@
-#include "mystruct.h"
+#include <stdint.h>
+#include <stdio.h>
+
+uint16_t rgb(uint8_t r, uint8_t g, uint8_t b) {
+    return ((uint16_t)(b >> 3) << 11) | ((uint16_t)(g >> 2) << 5) | (r >> 3);
+}
 
 int main() {
-    struct mystruct* m = makestruct(1, 2, 3);
-    // we cannot access data of mystruct_t: 
-    // m->a; pointer to incomplete class type "struct mystruct" is not allowed
-    // but mystruct.c can!
-    printstruct(m);
+    printf("%d", rgb(255, 255, 255));
     return 0;
 }

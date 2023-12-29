@@ -9,16 +9,16 @@ struct mystruct {
     uint8_t c;
 };
 
-mystruct_t makestruct(uint8_t a, uint8_t b, uint8_t c)
+struct mystruct* makestruct(uint8_t a, uint8_t b, uint8_t c)
 {
-    mystruct_t m = malloc(sizeof(struct mystruct));
+    struct mystruct* m = malloc(sizeof(struct mystruct));
     m->a = a;
     m->b = b;
     m->c = c;
     return m;
 }
 
-void printstruct(mystruct_t m)
+void printstruct(struct mystruct* m)
 {
     printf("a: %d, b: %d, c: %d", m->a, m->b, m->c);
 }
